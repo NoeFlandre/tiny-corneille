@@ -1,0 +1,94 @@
+[project]
+name = "tiny-corneille"
+version = "0.1.0"
+description = "Tiny Corneille: a clean French text corpus built from the seven Gutenberg tomes of Corneille's works."
+readme = "README.md"
+authors = [
+    { name = "NoeFlandre" },
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+tiny-corneille = "tiny_corneille.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.11.16,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "coverage>=7.16.2",
+    "hypothesis>=6.170.1",
+    "import-linter>=2.15",
+    "mutmut>=3.8.0",
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+    "radon>=6.0.1",
+    "ruff>=0.17.1",
+    "ty>=0.0.89",
+]
+docs = [
+    "mkdocs>=1.6.1",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["mutants"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "UP", "C90", "N", "SIM", "RUF", "PT", "PERF", "ANN", "S"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 5
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "S603", "S607", "ANN"]
+"scripts/**" = ["S", "ANN"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["--strict-markers", "--strict-config", "-ra"]
+markers = [
+    "unit: pure domain tests",
+    "property: Hypothesis property-based tests",
+    "integration: adapter and CLI tests with fakes",
+    "acceptance: end-to-end CLI tests on fixtures or the real corpus",
+]
+
+[tool.ty.src]
+exclude = ["mutants"]
+
+[tool.mutmut]
+source_paths = ["src/tiny_corneille"]
+also_copy = ["scripts"]
+pytest_add_cli_args_test_selection = ["-m", "not acceptance", "tests"]
+
+[tool.coverage.run]
+source = ["tiny_corneille"]
+branch = true
+
+[tool.coverage.report]
+fail_under = 95
+show_missing = true
+
+[tool.importlinter]
+root_package = "tiny_corneille"
+
+[[tool.importlinter.contracts]]
+name = "Domain is pure: no adapters and no CLI"
+type = "forbidden"
+source_modules = ["tiny_corneille.domain"]
+forbidden_modules = ["tiny_corneille.adapters", "tiny_corneille.cli"]
+
+[[tool.importlinter.contracts]]
+name = "Adapters do not depend on domain or CLI"
+type = "forbidden"
+source_modules = ["tiny_corneille.adapters"]
+forbidden_modules = ["tiny_corneille.domain", "tiny_corneille.cli"]
+
+[[tool.importlinter.contracts]]
+name = "Domain modules are acyclic"
+type = "acyclic_siblings"
+ancestors = ["tiny_corneille.domain"]

@@ -1,0 +1,15 @@
+.git
+.venv
+.mutmut-cache
+.hypothesis
+.pytest_cache
+.ruff_cache
+.ty_cache
+coverage.json
+htmlcov
+mutants
+site
+data
+tests
+docs
+scripts

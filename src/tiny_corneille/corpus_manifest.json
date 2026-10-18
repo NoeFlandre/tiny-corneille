@@ -1,0 +1,54 @@
+{
+  "name": "tiny-corneille",
+  "sources": [
+    {
+      "tome": 1,
+      "title": "Œuvres de P. Corneille, Tome 01",
+      "url": "https://www.gutenberg.org/cache/epub/31628/pg31628.txt",
+      "sha256": "003f61acaedfb28c8a109c66f4fc205f15ea1de28ddbc100b695c5337f1412d4"
+    },
+    {
+      "tome": 2,
+      "title": "Œuvres de P. Corneille, Tome 02",
+      "url": "https://www.gutenberg.org/cache/epub/34445/pg34445.txt",
+      "sha256": "0122d2319bbe738040027be2940938a0d348658b98372fef71dbf09f4ad34ad3"
+    },
+    {
+      "tome": 3,
+      "title": "Œuvres de P. Corneille, Tome 03",
+      "url": "https://www.gutenberg.org/cache/epub/36011/pg36011.txt",
+      "sha256": "4007eb3651a3d387521df3136c1b01c9f0bbb424321ba40cf102ddf4b8d50b6c"
+    },
+    {
+      "tome": 4,
+      "title": "Œuvres de P. Corneille, Tome 04",
+      "url": "https://www.gutenberg.org/cache/epub/39739/pg39739.txt",
+      "sha256": "ec6b4a657c72f49af340b25a137cb2354c0a91b55ad008c598ca956887e44aba"
+    },
+    {
+      "tome": 5,
+      "title": "Œuvres de P. Corneille, Tome 05",
+      "url": "https://www.gutenberg.org/cache/epub/46527/pg46527.txt",
+      "sha256": "1ff53353d193c84ae99a6efce190bbe4825fef3cc4d633e435e765f93bfc49df"
+    },
+    {
+      "tome": 6,
+      "title": "Œuvres de P. Corneille, Tome 06",
+      "url": "https://www.gutenberg.org/cache/epub/48590/pg48590.txt",
+      "sha256": "c48624138b9ac8efa21a5c91c1a3ae18018c3a15dd668978d40fdd9b2d397845"
+    },
+    {
+      "tome": 7,
+      "title": "Œuvres de P. Corneille, Tome 07",
+      "url": "https://www.gutenberg.org/cache/epub/51612/pg51612.txt",
+      "sha256": "1b819e504cec9e198243f86eb33a20b2b445613834abf503f0e5c3505f8c3125"
+    }
+  ],
+  "corpus": {
+    "file": "tiny_corneille.txt",
+    "sha256": "a40f01ab1f6befaf577e70504c785a1d6447543eb58036d09031bf3786183afd",
+    "characters": 3795595,
+    "lines": 118402,
+    "vocabulary_size": 119
+  }
+}
