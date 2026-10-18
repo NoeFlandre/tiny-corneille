@@ -22,7 +22,7 @@ Tiny Corneille is a clean French text corpus. It holds the seven tomes of the wo
 
 ## Files
 
-- `tiny_corneille.txt`: the corpus. UTF-8, LF line endings, 3,795,595 characters, 118,402 lines, 119 distinct characters.
+- `tiny_corneille.txt`: the corpus. UTF-8, LF line endings, 3,795,595 characters, 118,402 lines, 119 distinct characters, and 1,571,834 GPT-2 tokens (2.415 characters per token, tiktoken `gpt2` encoding).
 - `manifest.json`: the SHA-256 of each raw tome and of the corpus, and the expected statistics.
 
 ## Sources

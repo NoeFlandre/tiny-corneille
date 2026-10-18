@@ -53,4 +53,6 @@ Some editorial text remains. [Technical debt](tech-debt.md) lists it, with the c
 
 `tiny_corneille.txt` is UTF-8. The seven cleaned tomes follow each other in order. One blank line separates two tomes.
 
+The corpus holds 1,571,834 GPT-2 tokens, measured with the tiktoken `gpt2` encoding by `scripts/count_gpt2_tokens.py`.
+
 The manifest records the expected statistics. `verify` compares the corpus with them, byte for byte.
