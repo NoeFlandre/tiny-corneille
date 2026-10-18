@@ -23,9 +23,11 @@ def test_download_uses_urllib_when_no_opener_is_given(monkeypatch: pytest.Monkey
         self: object, fullurl: urllib.request.Request, data: object = None, timeout: object = None
     ) -> _Body:
         seen["url"] = fullurl.full_url
+        seen["timeout"] = timeout
         return _Body()
 
     monkeypatch.setattr(urllib.request.OpenerDirector, "open", fake_open)
 
     assert network.download("https://example.test/t") == b"from the default opener"
     assert seen["url"] == "https://example.test/t"
+    assert seen["timeout"] == 30.0

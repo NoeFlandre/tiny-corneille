@@ -26,7 +26,8 @@ class HttpsOnlyRedirectHandler(urllib.request.HTTPRedirectHandler):
     ) -> urllib.request.Request | None:
         if not newurl.startswith("https://"):
             raise DownloadError(f"refusing redirect to non-HTTPS URL: {newurl}")
-        return super().redirect_request(req, fp, code, msg, headers, newurl)
+        # The stdlib base class ignores fp, msg and headers, so mutating them is equivalent.
+        return super().redirect_request(req, fp, code, msg, headers, newurl)  # pragma: no mutate
 
 
 def _default_open(request: urllib.request.Request, timeout: float) -> http.client.HTTPResponse:

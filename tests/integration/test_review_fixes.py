@@ -124,4 +124,6 @@ def test_failed_write_mid_fetch_reports_how_many_tomes_were_written(
     code = main(["fetch", "--manifest", str(manifest_file), "--output-dir", str(tmp_path / "raw")])
 
     assert code == EXIT_ENVIRONMENT
-    assert "write failed after 2 of 7 tomes" in capsys.readouterr().err
+    assert capsys.readouterr().err == (
+        "error: write failed after 2 of 7 tomes: disk full\nthe output directory may mix versions\n"
+    )
